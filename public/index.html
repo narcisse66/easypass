@@ -1,17 +1,144 @@
-<!DOCTYPE html>
-<html lang="">
+﻿<!DOCTYPE html>
+<html lang="en" class="h-100">
+  <!-- Mirrored from www.gambolthemes.net/html-items/EasyPass-html/disable-demo-link/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 09 Dec 2024 17:58:33 GMT -->
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title><%= htmlWebpackPlugin.options.title %></title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, shrink-to-fit=9" />
+    <meta name="description" content="Gambolthemes" />
+    <meta name="author" content="Gambolthemes" />
+    <title>EasyPass - Simple Online Event Ticketing System</title>
+    <!-- Favicon Icon -->
+    <link rel="icon" type="image/png" href="./assets/images/logo.png" />
+
+    <!-- Stylesheets -->
+
+    <link
+      href="./assets/vendor/unicons-2.0.1/css/unicons.css"
+      rel="stylesheet"
+    />
+    <link href="./assets/css/style.css" rel="stylesheet" />
+    <link href="./assets/css/responsive.css" rel="stylesheet" />
+    <link href="./assets/css/night-mode.css" rel="stylesheet" />
+
+    <!-- Vendor Stylesheets -->
+    <link
+      href="./assets/vendor/fontawesome-free/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="./assets/vendor/OwlCarousel/assets/owl.carousel.css"
+      rel="stylesheet"
+    />
+    <link
+      href="./assets/vendor/OwlCarousel/assets/owl.theme.default.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="./assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="./assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="./assets/vendor/chartist/dist/chartist.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="./assets/vendor/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.css"
+      rel="stylesheet"
+    />
   </head>
-  <body>
+
+  <body class="d-flex flex-column h-100">
+    <!-- Header Start-->
+
     <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+      <strong
+        >We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work
+        properly without JavaScript enabled. Please enable it to
+        continue.</strong
+      >
     </noscript>
+
     <div id="app"></div>
     <!-- built files will be auto injected -->
+
+    <script src="./assets/js/jquery.min.js"></script>
+    <script src="./assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/vendor/OwlCarousel/owl.carousel.js"></script>
+    <script src="./assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="./assets/vendor/mixitup/dist/mixitup.min.js"></script>
+    <script src="./assets/js/custom.js"></script>
+    <script src="./assets/js/night-mode.js"></script>
+    <script src="./js-sdk.min.js"></script>
+    <script src="./vconsole.min.js"></script>
+    <script>
+      var vConsole = new VConsole();
+      console.log("index loaded")
+      </script>
+
+
+    <!--script>
+      function autoLogin() {
+        console.log("merchantAppId", merchantAppId);
+        getMiniAppToken()
+          .then((token) => {
+            authToken(token);
+          })
+          .catch((ex) => {})
+          .finally(() => {});
+      }
+
+      function getMiniAppToken() {
+        return new Promise((resolve, reject) => {
+          window.ma
+            .native("getMiniAppToken", { appId: merchantAppId })
+            .then((res) => {
+              console.log("res", res);
+              let data = JSON.parse(res);
+              resolve(data.token);
+            })
+            .catch((ex) => {
+              reject(ex);
+            });
+        });
+      }
+      function authToken(token) {
+        let loading = weui.loading("loading", {});
+        window
+          .fetch(baseUrl + "./auth/token", {
+            method: "post",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              authToken: token,
+            }),
+          })
+          .then((res) => {
+            res.json().then((json) => {
+              console.log(json);
+
+              let biz = json.biz_content;
+              let openId = biz.open_id;
+              let identityId = biz.identityId;
+              console.log(openId);
+              document.getElementById(
+                "userinfo"
+              ).innerHTML = `openId: <br> <span style='color:red;'>${openId}</span>  
+                <br>  
+                identityId: <br> <span style='color:red;'>${identityId}</span>`;
+            });
+          })
+          .finally(() => {
+            loading.hide();
+          });
+      }
+    </script -->
   </body>
+
+  <!-- Mirrored from www.gambolthemes.net/html-items/EasyPass-html/disable-demo-link/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 09 Dec 2024 17:58:51 GMT -->
 </html>

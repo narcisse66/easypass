@@ -4,6 +4,7 @@ import AppDetailsEvent from "@/view/pages/AppDetailsEvent.vue";
 import AppDetailsEvent2 from "@/view/pages/AppDetailsEvent2.vue";
 import AppDetailsEvent3 from "@/view/pages/AppDetailsEvent3.vue";
 import AppDetailsEvent4 from "@/view/pages/AppDetailsEvent4.vue";
+import AppDetailsEventDyn from "@/view/pages/AppDetailsEventDyn.vue";
 import Explorer from "@/view/pages/AppExplorer.vue";
 import AppHome from "@/view/pages/AppHome.vue";
 import AppValiderPay from "@/view/pages/AppValiderPay.vue";
@@ -30,7 +31,7 @@ const routes = [
     name: "details-event",
     component: AppDetailsEvent, // Lazy loading
     // props: true, // Pass route params as props to the component
-  },
+  }
   ,
   {
     path: "/detail/event2",
@@ -67,6 +68,12 @@ const routes = [
     name: "detail-ticket",
     component: AppViewTicket,
     // props: true, // Pass route params as props to the component
+  },
+  {
+    path: '/event/:id',
+    name: 'EventDetail',
+    component: AppDetailsEventDyn,
+    props: true,
   },
 ];
 

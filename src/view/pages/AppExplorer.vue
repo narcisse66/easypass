@@ -120,155 +120,75 @@
                       </div>
                     </div>
                   </div>
+
+
                   <div
-                    class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mix ateliers concert arts bénévolat sports"
+                    v-for="event in events"
+                    :key="event.id"
+                    class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mix affaires ateliers bénévolat sports santé_bien-être"
                     data-ref="mixitup-target"
                   >
                     <div class="main-card mt-4">
                       <div class="event-thumbnail">
                         <router-link
-                          :to="{ name: 'details-event2' }"
+                          :to="`/event/${event.id}`"
                           class="thumbnail-img"
                         >
                           <img
-                            src="/assets/images/event-imgs/img-6.jpg"
-                            alt=""
+                            :src="
+                              event.image ||
+                              `/assets/images/event-imgs/img-${event.id}.jpg`
+                            "
+                            alt="Image de l'événement"
                           />
                         </router-link>
+
                         <span class="bookmark-icon" title="Enregistrer"></span>
                       </div>
                       <div class="event-content">
                         <router-link
-                          :to="{ name: 'details-event' }"
+                          :to="`/event/${event.id}`"
                           class="event-title"
-                          >Spectacle Open Mic "Step Up"</router-link
-                        >
+
+                        >{{ event.title }}</router-link>
+                        
+                         
                         <div class="duration-price-remaining">
-                          <span class="duration-price">AUD 200,00*</span>
-                          <span class="remaining"></span>
+                          <span class="duration-price"
+                            >F cfa {{ event.price }}*</span
+                          >
+                          <span class="remaining">
+                            <i class="fa-solid fa-ticket fa-rotate-90"></i
+                            >{{
+                              event.total_tickets - event.total_reservations
+                            }}
+                            Restants
+                          </span>
                         </div>
                       </div>
                       <div class="event-footer">
                         <div class="event-timing">
                           <div class="publish-date">
                             <span
-                              ><i class="fa-solid fa-calendar-day me-2"></i>30
-                              Juin</span
+                              ><i class="fa-solid fa-calendar-day me-2"></i
+                              >{{ event.event_date }}</span
                             >
                             <span class="dot"
                               ><i class="fa-solid fa-circle"></i
                             ></span>
-                            <span>Jeu, 16h30</span>
+                            <span>{{ event.event_time }}</span>
                           </div>
                           <span class="publish-time"
-                            ><i class="fa-solid fa-clock me-2"></i>1h</span
+                            ><i class="fa-solid fa-clock me-2"></i>2h</span
                           >
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div
-                    class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mix bénévolat gratuit santé_bien-être"
-                    data-ref="mixitup-target"
-                  >
-                    <div class="main-card mt-4">
-                      <div class="event-thumbnail">
-                        <router-link
-                          :to="{ name: 'details-event3' }"
-                          class="thumbnail-img"
-                        >
-                          <img
-                            src="/assets/images/event-imgs/img-7.jpg"
-                            alt=""
-                          />
-                        </router-link>
-                        <span class="bookmark-icon" title="Enregistrer"></span>
-                      </div>
-                      <div class="event-content">
-                        <router-link
-                          :to="{ name: 'details-event' }"
-                          class="event-title"
-                          >Tutoriel sur la peinture sur toile pour
-                          débutants</router-link
-                        >
-                        <div class="duration-price-remaining">
-                          <span class="duration-price">AUD 50,00*</span>
-                          <span class="remaining"
-                            ><i class="fa-solid fa-ticket fa-rotate-90"></i>17
-                            Restants</span
-                          >
-                        </div>
-                      </div>
-                      <div class="event-footer">
-                        <div class="event-timing">
-                          <div class="publish-date">
-                            <span
-                              ><i class="fa-solid fa-calendar-day me-2"></i>17
-                              Juillet</span
-                            >
-                            <span class="dot"
-                              ><i class="fa-solid fa-circle"></i
-                            ></span>
-                            <span>Dim, 17h30</span>
-                          </div>
-                          <span class="publish-time"
-                            ><i class="fa-solid fa-clock me-2"></i>1h</span
-                          >
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mix sports concert bénévolat arts"
-                    data-ref="mixitup-target"
-                  >
-                    <div class="main-card mt-4">
-                      <div class="event-thumbnail">
-                        <router-link
-                          :to="{ name: 'details-event4' }"
-                          class="thumbnail-img"
-                        >
-                          <img
-                            src="/assets/images/event-imgs/img-8.jpg"
-                            alt=""
-                          />
-                        </router-link>
-                        <span class="bookmark-icon" title="Enregistrer"></span>
-                      </div>
-                      <div class="event-content">
-                        <router-link
-                          :to="{ name: 'details-event' }"
-                          class="event-title"
-                          >Programme de formation sur le leadership
-                          2022</router-link
-                        >
-                        <div class="duration-price-remaining">
-                          <span class="duration-price">AUD 120,00*</span>
-                          <span class="remaining"
-                            ><i class="fa-solid fa-ticket fa-rotate-90"></i>7
-                            Restants</span
-                          >
-                        </div>
-                      </div>
-                      <div class="event-footer">
-                        <div class="event-timing">
-                          <div class="publish-date">
-                            <span
-                              ><i class="fa-solid fa-calendar-day me-2"></i>20
-                              Juillet</span
-                            >
-                            <span class="dot"
-                              ><i class="fa-solid fa-circle"></i
-                            ></span>
-                            <span>Mer, 23h30</span>
-                          </div>
-                          <span class="publish-time"
-                            ><i class="fa-solid fa-clock me-2"></i>12h</span
-                          >
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+
+
+
+                  
                 </div>
               </div>
             </div>
@@ -280,7 +200,34 @@
 </template>
 
 <script>
+import { API_BASE_URL } from "@/config/config"; // Chemin à adapter selon votre structure
+import axios from "axios";
+
 export default {
   name: "AppExplorer",
+  data() {
+    return {
+      events: [], // On va stocker la liste des événements ici
+    };
+  },
+  mounted() {
+    this.fetchEvents(); // Appeler la méthode pour récupérer les événements dès que le composant est monté
+  },
+  methods: {
+  fetchEvents() {
+    axios.defaults.headers.common['ngrok-skip-browser-warning'] = 'true'; // Add the header
+    axios
+      .get(`${API_BASE_URL}/events`) // Your API URL
+      .then((response) => {
+        this.events = response.data;
+        console.log(this.events);
+      })
+      .catch((error) => {
+        console.error('Erreur lors de la récupération des événements :', error);
+      });
+  },
+}
+
+
 };
 </script>
